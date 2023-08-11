@@ -72,7 +72,7 @@ public class IConnectImpl implements IConnect{
 	//사용자로부터 입력값 받기위한 메소드
 	public String scanValue (String title) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println(title+" 을/를 입력 (exit > 종료)");
+		System.out.print("\n"+title+" 을/를 입력 (exit>종료) : ");
 		String inputStr = sc.nextLine();
 /* equalsIgnoreCase() : equals()와 동일하게 문자열이 동일한지 비교하는 메소드로 
  * 대소문자 구분않고 비교한다. 즉 EXIT 와 exit 를 같은문자열로판단 */

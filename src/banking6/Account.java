@@ -18,7 +18,7 @@ abstract class Account implements Serializable {
 	}
 
 	public void showAccInfo() {
-		System.out.print("계좌번호 : "+accNum+"  |  고객명 : "+name+"  |  잔액 : "+bal);
+		System.out.println("계좌번호 : "+accNum+"  |  고객명 : "+name+"  |  잔액 : "+bal);
 	}
 	
 	public boolean plusMoney(int money) {

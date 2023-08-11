@@ -21,7 +21,7 @@ public class NormalAccount extends Account {
 		
 	public void showAccInfo() {
 		super.showAccInfo();
-		System.out.print("  |  기본이자 : "+interest+" %");
+		System.out.println("기본이자 : "+interest+" %");
 	}
 	
 	public String toString() {

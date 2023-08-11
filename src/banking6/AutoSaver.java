@@ -23,8 +23,7 @@ public class AutoSaver extends Thread {
 			}catch(IOException e) {
 				System.out.println("자동저장시 오류가 발생했습니다.");
 				break;
-			}
-			catch(InterruptedException e) {
+			}catch(InterruptedException e) {
 				System.out.println("자동저장이 중단되었습니다. ");
 				break;
 			}catch(Exception e) {

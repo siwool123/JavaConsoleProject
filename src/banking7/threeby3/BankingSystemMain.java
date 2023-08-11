@@ -41,7 +41,9 @@ public class BankingSystemMain implements MenuChoice {
 	}
 	
 	public static void showMenu() {
-		System.out.println("-------Menu-------\n1. 계좌개설 \n2. 입금 \n3. 출금 \n4. 전체계좌정보출력 \n5. 3 by 3 GAME \n6. 프로그램 종료\n선택 : ");
+		System.out.println("----------Menu-----------\n1. 계좌개설    2. 입금    3. 출금    4. 전체계좌정보출력");
+		System.out.println("5. 3by3 GAME    6. 프로그램 종료\n-------------------------");
+		System.out.print("선택 : ");
 	}
 
 	public static void makeAccount() {
@@ -109,7 +111,8 @@ public class BankingSystemMain implements MenuChoice {
 		shuffle();
 		list2show();
 		while(!compareList(list, list2)) {
-		System.out.println("[이동] a:LEFT d:RIGHT w:UP s:DOWN\n[종료] x:EXIT\n키를 입력해주세요 : ");
+		System.out.println("[이동] a:LEFT d:RIGHT w:UP s:DOWN\n[종료] x:EXIT");
+		System.out.print("키를 입력해주세요 : ");
 		char arrow = sc.next().charAt(0);
 		switch(list2.indexOf('X')) {
 		case 0:
@@ -225,7 +228,7 @@ public class BankingSystemMain implements MenuChoice {
 	public static boolean askRestart() {
 		while(true) {
 			listshow();
-			System.out.println("게임을 재시작하시겠습니까?\n(y 누르면 재시작, 나머지는 종료) : ");
+			System.out.print("게임을 재시작하시겠습니까?\n(y 누르면 재시작, 나머지는 종료) : ");
 			char choice4 = sc.next().charAt(0);
 			sc.nextLine();
 			if(choice4=='y'||choice4=='Y') return true;

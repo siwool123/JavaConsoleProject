@@ -20,8 +20,6 @@ public class BankingSystemMain implements MenuChoice {
 //				throw ex;}
 			}catch(InputMismatchException e) {
 				System.out.println("[예외발생] 숫자만 입력하세요. ");
-				sc.nextLine();
-				return;
 			}
 //			catch(MenuSelectException e) {
 //				System.out.println(e.getMessage());
@@ -36,7 +34,7 @@ public class BankingSystemMain implements MenuChoice {
 			case MenuChoice.INQUIRE: manager.showAccInfo(); break;
 			case MenuChoice.DELETE: manager.deleteAcc(); break;
 			case MenuChoice.SAVE:
-				System.out.println("***저장옵션***\n1. 자동저장 On\n2. 자동저장 Off");
+				System.out.println("***저장옵션***\n1. 자동저장 On    2. 자동저장 Off");
 				int choice3 = sc.nextInt();
 				sc.nextLine();
 				switch(choice3) {
@@ -55,7 +53,7 @@ public class BankingSystemMain implements MenuChoice {
 				}
 				break;
 			case MenuChoice.EXIT: manager.exit(); return;
-			default : System.out.println("범위가 잘못되었습니다. \n1~5사이의 숫자를 입력해주세요.");
+			default : System.out.println("범위가 잘못되었습니다. 1~7사이의 숫자를 입력해주세요.");
 			}
 			}
 	}

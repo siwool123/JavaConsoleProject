@@ -45,7 +45,7 @@ public class AccountManager implements MenuChoice {
 		try {
 		choice2 = sc.nextInt();
 		if(choice2<1||choice2>2) {
-			System.out.print("범위가 잘못되었습니다. \n1~2사이의 숫자를 입력해주세요 : ");
+			System.out.print("범위가 잘못되었습니다. 1~2사이의 숫자를 입력해주세요 : ");
 			return;
 		}
 		}catch(InputMismatchException e) {
@@ -68,18 +68,18 @@ public class AccountManager implements MenuChoice {
 		case 1 :
 			Account addNAcc = new NormalAccount(iaccNum, iname, ibal, binter);
 			if(set.add(addNAcc)==false) {
-				System.out.print("중복계좌가 발견되었습니다. \n덮어쓸까요? (Y/N) : ");
+				System.out.print("중복계좌가 발견되었습니다. 갱신할까요? (Y/N) : ");
 				char b = sc.next().charAt(0);
 				switch(b) {
 				case 'Y': case 'y': 
 					set.remove(addNAcc);
 					set.add(addNAcc);
-					System.out.println("덮어쓰기하여 신규계좌개설을 완료하였습니다.");								
+					System.out.println("갱신하여 신규계좌개설을 완료하였습니다.");								
 					break;
 				case 'N': case 'n': 
 					System.out.println("계좌개설이 취소되었습니다.");
 					return;
-				default : System.out.print("문자 Y 또는 N 만 입력가능합니다 : "); return;
+				default : System.out.println("문자 Y 또는 N 만 입력가능합니다. "); return;
 				}
 			}
 //			else set.add(addNAcc);
@@ -89,18 +89,18 @@ public class AccountManager implements MenuChoice {
 			grade = sc.next().charAt(0);
 			Account addHAcc = new HighCreditAccount (iaccNum, iname, ibal, binter, grade);
 			if(set.add(addHAcc)==false) {
-				System.out.print("중복계좌가 발견되었습니다. 덮어쓸까요? (Y/N) : ");
+				System.out.print("중복계좌가 발견되었습니다. 갱신할까요? (Y/N) : ");
 				char b = sc.next().charAt(0);
 				switch(b) {
 				case 'Y': case 'y': 
 					set.remove(addHAcc);
 					set.add(addHAcc);
-					System.out.println("덮어쓰기하여 신규계좌개설을 완료하였습니다.");								
+					System.out.println("갱신하여 신규계좌개설을 완료하였습니다.");								
 					break;
 				case 'N': case 'n': 
 					System.out.println("계좌개설이 취소되었습니다.");
 					return;
-				default : System.out.print("문자 Y 또는 N 만 입력가능합니다 : "); return;
+				default : System.out.println("문자 Y 또는 N 만 입력가능합니다. "); return;
 				}
 			}
 			else set.add(addHAcc);
@@ -109,46 +109,53 @@ public class AccountManager implements MenuChoice {
 	}
 	
 	public void depositMoney() {
-		String iaccNum;
 		int iMoney = 0;
 		sc.nextLine();
-		System.out.println("***입금***\n계좌번호와 입금할 금액을 입력하세요.\n계좌번호 : ");
-		iaccNum = sc.nextLine();
-
-		System.out.println("입금액 : ");
-//		while(true) {
+		System.out.print("***입금***\n계좌번호 : ");
+		String iaccNum = sc.nextLine();
+		System.out.print("입금액 : ");
+		while(true) {
 		try{
 			iMoney = sc.nextInt();
-			if(iMoney<0||iMoney%500!=0) {
-				System.out.println("500원 단위의 양수만 입금 가능합니다.");
-			}else {
-				for(Account i:set) {
-					if(i.getAccNum().equals(iaccNum)) {
-						i.plusMoney(iMoney);
-						System.out.println("입금이 완료되었습니다.");
-						break;
-					}else System.out.println("--- 입력하신 계좌가 없습니다 ---");
-				}
-			}
+			sc.nextLine();
+			break;
 		}catch(InputMismatchException e) {
 			System.out.println("[예외발생] 숫자만 입력하세요.");
-			sc.nextLine();
+			return;
+//			sc.nextLine();
 		}
-//		}
+		}
+		if(iMoney<0||iMoney%500!=0) System.out.println("500원 단위의 양수만 입금 가능합니다.");
+		else {
+			for(Account i:set) {
+				if(i.getAccNum().equals(iaccNum)) {
+					i.plusMoney(iMoney);
+					System.out.println("입금이 완료되었습니다.");
+					return;
+				}
+			}
+			System.out.println("--- 입력하신 계좌가 없습니다 ---"); 
+		}
 	}
-	
+
 	public void withdrawMoney() {
-		String iaccNum;
-		int iMoney = 0;
+		int iMoney = 0; boolean isFind = false;
 		sc.nextLine();
-		System.out.println("***출금***\n계좌번호와 출금할 금액을 입력하세요.\n계좌번호 : ");
-		iaccNum = sc.nextLine();
-		
-		System.out.println("출금액 : ");
-//		while(true) {
+		System.out.print("***출금***\n계좌번호 : ");
+		String iaccNum = sc.nextLine();
+		System.out.print("출금액 : ");
+		while(true) {
 		try{
 			iMoney = sc.nextInt();
-			if(iMoney<0||iMoney%1000!=0) {
+			sc.nextLine();
+			break;
+		}catch(InputMismatchException e) {
+			System.out.println("[예외발생] 숫자만 입력하세요.");
+			return;
+//			sc.nextLine();
+		}
+		}
+		if(iMoney<0||iMoney%1000!=0) {
 				System.out.println("1000원 단위의 양수만 출금 가능합니다.");
 			}else {
 				for(Account i:set) {
@@ -156,14 +163,14 @@ public class AccountManager implements MenuChoice {
 						if(iMoney<=i.getBal()) {
 							i.minusMoney(iMoney);
 							System.out.println("출금이 완료되었습니다.");
-							break;
+							return;
 						}else {
-							System.out.println("잔고가 부족합니다. \n금액전체를 출금할까요? (Y/N)");
+							System.out.print("잔고가 부족합니다. 잔액전부를 출금할까요? (Y/N) : ");
 //							while(true) {
 							char a = sc.next().charAt(0);
 							switch(a) {
 							case 'Y': case 'y': 
-								System.out.println(i.getBal()+" 원 (잔액 전부) 출금 완료되었습니다.");
+								System.out.println("잔고 "+i.getBal()+" 원 전부 출금 완료되었습니다.");
 								i.setBal(0);									
 								break;
 							case 'N': case 'n': 
@@ -173,14 +180,10 @@ public class AccountManager implements MenuChoice {
 							}
 //							}
 						}
-					}else System.out.println("--- 입력하신 계좌가 없습니다 ---");
-				}
+						isFind = true;
+					} 
+				}if(isFind==false) System.out.println("--- 입력하신 계좌가 없습니다 ---");
 			}
-		}catch(InputMismatchException e) {
-			System.out.println("[예외발생] 숫자만 입력하세요.");
-			sc.nextLine();
-		}
-//		}
 	}
 	
 	public static void showAccInfo() {
@@ -194,20 +197,16 @@ public class AccountManager implements MenuChoice {
 	}
 	
 	public static void deleteAcc() {
-		String iaccNum;
-		sc.nextLine();
+		sc.nextLine(); boolean isFind=false;
 		System.out.print("***계좌삭제***\n삭제할 계좌번호를 입력하세요 : ");
-		iaccNum = sc.nextLine();
+		String iaccNum = sc.nextLine();
 		for(Account i:set) {
 			if(i.getAccNum().equals(iaccNum)) {
 				set.remove(i);
 				System.out.println(iaccNum+" 계좌를 삭제하였습니다.");
-				break;}
-			else {
-				System.out.println("--- 입력하신 계좌가 없습니다 ---");
-				return;
-			}
-		}		
+				isFind = true; 
+				break; }		
+		}if(isFind==false) System.out.println("--- 입력하신 계좌가 없습니다 ---");
 	}
 	
 	public static void exit() {
@@ -218,6 +217,6 @@ public class AccountManager implements MenuChoice {
 		}catch(IOException e) {
 			System.out.println("파일 저장하는데 문제가 발생했습니다.");
 		}
-		System.out.println("파일로 저장 성공했습니다. \n프로그램을 종료합니다.");
+		System.out.println("정상적으로 파일 저장되었습니다. 프로그램을 종료합니다.");
 	}
 }

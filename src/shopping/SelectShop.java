@@ -12,7 +12,7 @@ public class SelectShop extends ConnectDB {
 	public void execute() {
 		boolean isFind = false;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("검색할 상품명을 입력하세요 : ");
+		System.out.print("검색할 상품명을 입력하세요 : ");
 		String p_name = sc.nextLine();
 
 		String sql = "SELECT * FROM sh_goods WHERE goods_name like '%"+p_name+"%' ";

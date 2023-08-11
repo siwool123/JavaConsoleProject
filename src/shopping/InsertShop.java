@@ -19,7 +19,7 @@ public class InsertShop extends IConnectImpl {
 			System.out.println(row+" 행이 입력되었습니다.");
 			if(row<0) System.out.println("상품명이 중복됩니다.");
 		}catch(Exception e) {
-			System.out.println("상품정보 등록에 오류가 발생했습니다.\n"+e.getMessage());
+			System.out.println("상품정보 등록에 오류가 발생했습니다.");
 		}finally {
 			close();
 		}
