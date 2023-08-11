@@ -17,7 +17,7 @@ public abstract class ConnectDB {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", id, pw);
-			System.out.println("Oracle 연결성공");
+//			System.out.println("Oracle 연결성공");
 		}catch(ClassNotFoundException e) {
 			System.out.println("오라클 드라이버 로딩 실패");
 		}catch(SQLException e) {
@@ -33,7 +33,7 @@ public abstract class ConnectDB {
 			Class.forName("oracle.jdbc.OracleDriver");
 //연결정보를 매개변수로 사용
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "education", "1234");
-			System.out.println("Oracle 연결성공");
+//			System.out.println("Oracle 연결성공");
 		}catch(ClassNotFoundException e) {
 			System.out.println("오라클 드라이버 로딩 실패");
 		}catch(SQLException e) {
