@@ -196,7 +196,7 @@ public class AccountManager implements MenuChoice {
 	public static void deleteAcc() {
 		String iaccNum;
 		sc.nextLine();
-		System.out.println("***계좌삭제***\n삭제할 계좌번호를 입력하세요.\n계좌번호 : ");
+		System.out.print("***계좌삭제***\n삭제할 계좌번호를 입력하세요 : ");
 		iaccNum = sc.nextLine();
 		for(Account i:set) {
 			if(i.getAccNum().equals(iaccNum)) {
