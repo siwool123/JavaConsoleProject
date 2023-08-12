@@ -108,7 +108,7 @@ public class BankingSystemMain implements MenuChoice {
 	}
 	
 	public static void threeby3Game() {
-		shuffle();
+		shuffle(3);
 		list2show();
 		while(!compareList(list, list2)) {
 		System.out.println("[이동] a:LEFT d:RIGHT w:UP s:DOWN\n[종료] x:EXIT");
@@ -117,123 +117,75 @@ public class BankingSystemMain implements MenuChoice {
 		switch(list2.indexOf('X')) {
 		case 0:
 			switch(arrow){
-			case 'a': case 'A': 
-				Collections.swap(list2, 0, 1);
-				list2show(); break;
-			case 'w': case 'W':
-				Collections.swap(list2, 0, 3);
-				list2show(); break;
+			case 'a': case 'A': Collections.swap(list2, 0, 1); list2show(); break;
+			case 'w': case 'W': Collections.swap(list2, 0, 3); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
 		case 1:
 			switch(arrow){
-			case 'a': case 'A': 
-				Collections.swap(list2, 1, 2);
-				list2show(); break;
-			case 'd': case 'D': 
-				Collections.swap(list2, 1, 0);
-				list2show(); break;
-			case 'w': case 'W':
-				Collections.swap(list2, 1, 4);
-				list2show(); break;
+			case 'a': case 'A': Collections.swap(list2, 1, 2); 	list2show(); break;
+			case 'd': case 'D': Collections.swap(list2, 1, 0); list2show(); break;
+			case 'w': case 'W': Collections.swap(list2, 1, 4); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
 		case 2:
 			switch(arrow){
-			case 'd': case 'D': 
-				Collections.swap(list2, 2, 1);
-				list2show(); break;
-			case 'w': case 'W':
-				Collections.swap(list2, 2, 5);
-				list2show(); break;
+			case 'd': case 'D': Collections.swap(list2, 2, 1); list2show(); break;
+			case 'w': case 'W': Collections.swap(list2, 2, 5); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
 		case 3:
 			switch(arrow){
-			case 'a': case 'A': 
-				Collections.swap(list2, 3, 4);
-				list2show(); break;
-			case 's': case 'S': 
-				Collections.swap(list2, 3, 0);
-				list2show(); break;
-			case 'w': case 'W':
-				Collections.swap(list2, 3, 6);
-				list2show(); break;
+			case 'a': case 'A': Collections.swap(list2, 3, 4); list2show(); break;
+			case 's': case 'S': Collections.swap(list2, 3, 0); list2show(); break;
+			case 'w': case 'W': Collections.swap(list2, 3, 6); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
 		case 4:
 			switch(arrow){
-			case 'a': case 'A': 
-				Collections.swap(list2, 4, 5);
-				list2show(); break;
-			case 'd': case 'D': 
-				Collections.swap(list2, 4, 3);
-				list2show(); break;
-			case 's': case 'S': 
-				Collections.swap(list2, 4, 1);
-				list2show(); break;
-			case 'w': case 'W':
-				Collections.swap(list2, 4, 7);
-				list2show();
+			case 'a': case 'A': Collections.swap(list2, 4, 5); list2show(); break;
+			case 'd': case 'D': Collections.swap(list2, 4, 3); list2show(); break;
+			case 's': case 'S': Collections.swap(list2, 4, 1); list2show(); break;
+			case 'w': case 'W': Collections.swap(list2, 4, 7); list2show();
 			}
 			break;
 		case 5:
 			switch(arrow){
-			case 'd': case 'D': 
-				Collections.swap(list2, 5, 4);
-				list2show(); break;
-			case 's': case 'S': 
-				Collections.swap(list2, 5, 2);
-				list2show(); break;
-			case 'w': case 'W':
-				Collections.swap(list2, 5, 8);
-				list2show(); break;
+			case 'd': case 'D': Collections.swap(list2, 5, 4); list2show(); break;
+			case 's': case 'S': Collections.swap(list2, 5, 2); list2show(); break;
+			case 'w': case 'W': Collections.swap(list2, 5, 8); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
 		case 6:
 			switch(arrow){
-			case 'a': case 'A': 
-				Collections.swap(list2, 6, 7);
-				list2show(); break;
-			case 's': case 'S':
-				Collections.swap(list2, 6, 3);
-				list2show(); break;
+			case 'a': case 'A': Collections.swap(list2, 6, 7); list2show(); break;
+			case 's': case 'S': Collections.swap(list2, 6, 3); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
 		case 7:
 			switch(arrow){
-			case 'a': case 'A': 
-				Collections.swap(list2, 7, 8);
-				list2show(); break;
-			case 'd': case 'D': 
-				Collections.swap(list2, 7, 6);
-				list2show(); break;
-			case 's': case 'S':
-				Collections.swap(list2, 7, 4);
-				list2show(); break;
+			case 'a': case 'A': Collections.swap(list2, 7, 8); list2show(); break;
+			case 'd': case 'D': Collections.swap(list2, 7, 6); list2show(); break;
+			case 's': case 'S': Collections.swap(list2, 7, 4); list2show(); break;
 			default: System.out.println("XXXXXX이동불가XXXXXX"); 
 			}
 			break;
-		case 8: listshow(); return;
 		}
 		}
 	}
 	
 	public static boolean askRestart() {
-		while(true) {
-			listshow();
-			System.out.print("게임을 재시작하시겠습니까?\n(y 누르면 재시작, 나머지는 종료) : ");
-			char choice4 = sc.next().charAt(0);
-			sc.nextLine();
-			if(choice4=='y'||choice4=='Y') return true;
-			else return false;
-		}
+		listshow();
+		System.out.print("게임을 재시작하시겠습니까?\n(y 누르면 재시작, 나머지는 종료) : ");
+		char choice4 = sc.next().charAt(0);
+		sc.nextLine();
+		return (choice4=='y'||choice4=='Y')? true : false;
 	}
 	
 	public static void list2show() {
@@ -315,26 +267,27 @@ public class BankingSystemMain implements MenuChoice {
 		}
 	}
 	
-//	public static void shuffle(int num) {
-//		try {
-//		for(int i=0; i<num; i++) {
-//			int n1 = (int)(Math.random()*4)+1;
-//			switch(n1) {
-//			case 1: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')-1); break;
-//			case 2: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')+1); break;
-//			case 3: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')+3); break;
-//			case 4: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')-3); 
-//			}
-//		}
-//		}catch(IndexOutOfBoundsException e) {
-//			return;
-//		}
-//	}
+	public static void shuffle(int num) {
+		try {
+		for(int i=0; i<num; i++) {
+			int n1 = (int)(Math.random()*4)+1;
+			switch(n1) {
+			case 1: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')-1); break;
+			case 2: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')+1); break;
+			case 3: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')+3); break;
+			case 4: Collections.swap(list2, list2.indexOf('X'), list2.indexOf('X')-3); 
+			}
+		}
+		}catch(IndexOutOfBoundsException e) {
+			return;
+		}
+	}
 	
 	public static boolean compareList(ArrayList<Character> list1, ArrayList<Character> list2) {
+		boolean isFind = true;
 		for(int i=0; i<list1.size(); i++) {
-			if(list1.get(i)!=list2.get(i)) return false; 
+			if(list1.get(i)!=list2.get(i)) isFind = false; 
 		}
-		return true;
+		return isFind;
 	}
 }
